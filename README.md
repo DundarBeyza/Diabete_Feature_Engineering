@@ -15,41 +15,43 @@ Applying feature engineering to diabetes dataset
 
 Veri Setini Tanımak 
 
-#Problem:Özellikleribelirtildiğindekişilerindiyabethastasıolupolmadıklarınıtahminedebilecekbirmakineöğrenmesimodeligeliştirilmesi
-#istenmektedir.Modeligeliştirmedenöncegerekliolanverianaliziveözellikmühendisliğiadımlarınıgerçekleştirmenizbeklenmektedir.
+#Problem:Özellikleri belirtildiğinde kişilerin diyabet hastası olup olmadıklarını tahmin edebilecek bir makine öğrenmesi modeli geliştirilmesi
+istenmektedir.Modeli geliştirmeden önce gerekli olan veri analizi ve özellik mühendisliği adımlarını gerçekleştirmemiz beklenmektedir.
 
-#VerisetiABD'dekiUlusalDiyabet-Sindirim-BöbrekHastalıklarıEnstitüleri'ndetutulanbüyükverisetininparçasıdır.
-#ABD'dekiArizonaEyaleti'ninenbüyük5.şehriolanPhoenixşehrindeyaşayan21yaşveüzerindeolanPimaIndiankadınları
-#üzerindeyapılandiyabetaraştırmasıiçinkullanılanverilerdir.768gözlemve8sayısalbağımsızdeğişkendenoluşmaktadır.
-#Hedefdeğişken"outcome"olarakbelirtilmişolup;1diyabettestsonucununpozitifoluşunu,0isenegatifoluşunubelirtmektedir.
+#Veriseti ABD'deki Ulusal Diyabet-Sindirim-Böbrek Hastalıkları Enstitüleri'nde tutulan büyük veri setinin parçasıdır.
+#ABD'deki Arizona Eyaleti'nin en büyük 5.şehri olan Phoenix şehrinde yaşayan 21 yaş ve üzerinde olan Pima Indian kadınları
+#üzerinde yapılan diyabet araştırması için kullanılan verilerdir.768 gözlem ve 8 sayısal bağımsız değişkenden oluşmaktadır.
+#Hedef değişken "outcome" olarak belirtilmiş olup;1 diyabet test sonucunun pozitif oluşunu,0 ise negatif oluşunu belirtmektedir.
 
-#Pregnancies:Hamileliksayısı
+#Değişkenler
+
+#Pregnancies: Hamilelik sayısı
 #Glucose:Glikoz
-#BloodPressure:Kanbasıncı(Diastolic(KüçükTansiyon))
-#SkinThickness:CiltKalınlığı
+#BloodPressure:Kan basıncı(Diastolic(KüçükTansiyon))
+#SkinThickness:Cilt Kalınlığı
 #Insulin:İnsülin.
-#BMI:Bedenkitleindeksi.
-#DiabetesPedigreeFunction:Soyumuzdakikişileregörediyabetolmaihtimalimizihesaplayanbirfonksiyon.
+#BMI:Beden kitle indeksi.
+#DiabetesPedigreeFunction:Soyumuzdaki kişilere göre diyabet olma ihtimalimizi hesaplayan bir fonksiyon.
 #Age:Yaş(yıl)
-#Outcome:Kişinindiyabetolupolmadığıbilgisi.Hastalığasahip(1)yadadeğil(0)
+#Outcome:Kişinin diyabet olup olmadığı bilgisi.Hastalığa sahip(1) yada değil(0).
 
 
-#GÖREV1:KEŞİFCİVERİANALİZİ
-#Adım1:Genelresmiinceleyiniz.
-#Adım2:Numerikvekategorikdeğişkenleriyakalayınız.
-#Adım3:Numerikvekategorikdeğişkenlerinanaliziniyapınız.
-#Adım4:Hedefdeğişkenanaliziyapınız.(Kategorikdeğişkenleregörehedefdeğişkeninortalaması,hedefdeğişkenegörenumerikdeğişkenlerinortalaması)
-#Adım5:Aykırıgözlemanaliziyapınız.
-#Adım6:Eksikgözlemanaliziyapınız.
-#Adım7:Korelasyonanaliziyapınız.
+#GÖREV1:KEŞİFCİ VERİ ANALİZİ
 
-#GÖREV2:FEATUREENGINEERING
-#Adım1:Eksikveaykırıdeğerleriçingerekliişlemleriyapınız.VerisetindeeksikgözlembulunmamaktaamaGlikoz,Insulinvb.
-#değişkenlerde0değeriiçerengözlembirimlerieksikdeğeriifadeediyorolabilir.Örneğin;birkişininglikozveyainsulindeğeri
-#0olamayacaktır.BudurumudikkatealaraksıfırdeğerleriniilgilideğerlerdeNaNolarakatamayapıpsonrasındaeksikdeğerlere
-#işlemleriuygulayabilirsiniz.
-#Adım2:Yenideğişkenleroluşturunuz.
-#Adım3:Encodingişlemlerinigerçekleştiriniz.
-#Adım4:Numerikdeğişkenleriçinstandartlaştırmayapınız.
-#Adım5:Modeloluşturunuz.
-![image](https://user-images.githubusercontent.com/111129459/191240205-a28aa7d0-a2a4-427b-bc11-9baaaebc9bdb.png)
+#Adım1:Genel resmi inceleyiniz.
+#Adım2:Numerik ve kategorik değişkenleri yakalayınız.
+#Adım3:Numerik ve kategorik değişkenlerin analizini yapınız.
+#Adım4:Hedef değişken analizi yapınız.
+#Adım5:Aykırı gözlem analizi yapınız.
+#Adım6:Eksik gözlem analizi yapınız.
+#Adım7:Korelasyon analizi yapınız.
+
+#GÖREV2:FEATURE ENGINEERING
+
+#Adım1:Eksik ve aykırı değerler için gerekli işlemleri yapınız.
+Verisetinde eksik gözlem bulunmamakta ama Glikoz,Insulin vb. değişkenlerde 0 değeri içeren gözlem birimleri eksikdeğeri ifade ediyor olabilir.Örneğin;bir kişinin glikoz veya insulin değeri 0 olamayacaktır.Bu durumu dikkate alarak sıfır değerlerini ilgili değerlerde NaN olarak atama yapıp sonrasında eksik değerlere işlemleri uygulayabilirsiniz.
+#Adım2:Yeni değişkenler oluşturunuz.
+#Adım3:Encoding işlemlerini gerçekleştiriniz.
+#Adım4:Numerik değişkenler için standartlaştırma yapınız.
+#Adım5:Model oluşturunuz.
+
