@@ -3,7 +3,7 @@
 # Diabete Feature Engineering
 ##############################
 
-# Gerekli Kütüphane ve Fonksiyonlar
+# Required Library and Functions
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -26,12 +26,9 @@ pd.set_option('display.float_format', lambda x: '%.3f' % x)
 df = pd.read_csv("datasets/diabetes.csv")
 df.head()
 
-##################################
-# GÖREV 1: KEŞİFCİ VERİ ANALİZİ
-##################################
 
 ##################################
-# GENEL RESİM
+# Exploratory Data Analysis
 ##################################
 
 def check_df(dataframe, head=5):
@@ -53,9 +50,6 @@ check_df(df)
 df.head()
 df.info()
 
-##################################
-# NUMERİK VE KATEGORİK DEĞİŞKENLERİN YAKALANMASI
-##################################
 
 def grab_col_names(dataframe, cat_th=10, car_th=20):
     """
@@ -122,10 +116,6 @@ num_cols
 cat_but_car
 
 
-##################################
-# KATEGORİK DEĞİŞKENLERİN ANALİZİ
-##################################
-
 def cat_summary(dataframe, col_name, plot=False):
     print(pd.DataFrame({col_name: dataframe[col_name].value_counts(),
                         "Ratio": 100 * dataframe[col_name].value_counts() / len(dataframe)}))
@@ -136,10 +126,6 @@ def cat_summary(dataframe, col_name, plot=False):
 
 cat_summary(df, "Outcome")
 
-
-##################################
-# NUMERİK DEĞİŞKENLERİN ANALİZİ
-##################################
 
 def num_summary(dataframe, numerical_col, plot=False):
     quantiles = [0.05, 0.10, 0.20, 0.30, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90, 0.95, 0.99]
@@ -154,9 +140,6 @@ def num_summary(dataframe, numerical_col, plot=False):
 for col in num_cols:
     num_summary(df, col, plot=True)
 
-##################################
-# NUMERİK DEĞİŞKENLERİN TARGET GÖRE ANALİZİ
-##################################
 
 def target_summary_with_num(dataframe, target, numerical_col):
     print(dataframe.groupby(target).agg({numerical_col: "mean"}), end="\n\n\n")
@@ -165,11 +148,8 @@ for col in num_cols:
     target_summary_with_num(df, "Outcome", col)
 
 
-##################################
-# KORELASYON
-##################################
 
-# Korelasyon, olasılık kuramı ve istatistikte iki rassal değişken arasındaki doğrusal ilişkinin yönünü ve gücünü belirtir
+------
 
 df.corr()
 
@@ -181,10 +161,6 @@ plt.show()
 
 
 
-
-##################################
-# BASE MODEL KURULUMU
-##################################
 
 y = df["Outcome"]
 X = df.drop("Outcome", axis=1)
@@ -224,12 +200,9 @@ plot_importance(rf_model, X)
 
 
 ##################################
-# GÖREV 2: FEATURE ENGINEERING
+# FEATURE ENGINEERING
 ##################################
 
-##################################
-# EKSİK DEĞER ANALİZİ
-##################################
 
 # Bir insanda Pregnancies ve Outcome dışındaki değişken değerleri 0 olamayacağı bilinmektedir.
 # Bundan dolayı bu değerlerle ilgili aksiyon kararı alınmalıdır. 0 olan değerlere NaN atanabilir .
@@ -279,10 +252,6 @@ for col in zero_columns:
 df.isnull().sum()
 
 
-
-##################################
-# AYKIRI DEĞER ANALİZİ
-##################################
 
 def outlier_thresholds(dataframe, col_name, q1=0.05, q3=0.95):
     quartile1 = dataframe[col_name].quantile(q1)
