@@ -1,4 +1,4 @@
-# Diabete_feature_engineering
+# Feature_Engineering
 Applying feature engineering to diabetes dataset
 <h1 align="center">Hi 👋, I'm Beyza Dundar</h1>
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=dundarbeyza&label=Profile%20views&color=0e75b6&style=flat" alt="dundarbeyza" /> </p>
@@ -13,45 +13,26 @@ Applying feature engineering to diabetes dataset
 <h3 align="left">Languages and Tools:</h3>
 <p align="left"> <a href="https://azure.microsoft.com/en-in/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/microsoft_azure/microsoft_azure-icon.svg" alt="azure" width="40" height="40"/> </a> <a href="https://www.docker.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/> </a> <a href="https://hadoop.apache.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/apache_hadoop/apache_hadoop-icon.svg" alt="hadoop" width="40" height="40"/> </a> <a href="https://www.adobe.com/in/products/illustrator.html" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/adobe_illustrator/adobe_illustrator-icon.svg" alt="illustrator" width="40" height="40"/> </a> <a href="https://www.microsoft.com/en-us/sql-server" target="_blank" rel="noreferrer"> <img src="https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg" alt="mssql" width="40" height="40"/> </a> <a href="https://www.oracle.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/oracle/oracle-original.svg" alt="oracle" width="40" height="40"/> </a> <a href="https://pandas.pydata.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg" alt="pandas" width="40" height="40"/> </a> <a href="https://www.photoshop.com/en" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/photoshop/photoshop-line.svg" alt="photoshop" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://scikit-learn.org/" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="scikit_learn" width="40" height="40"/> </a> <a href="https://seaborn.pydata.org/" target="_blank" rel="noreferrer"> <img src="https://seaborn.pydata.org/_images/logo-mark-lightbg.svg" alt="seaborn" width="40" height="40"/> </a> </p>
 
-Veri Setini Tanımak 
+Getting to Know the Data Set
 
-#Problem:Özellikleri belirtildiğinde kişilerin diyabet hastası olup olmadıklarını tahmin edebilecek bir makine öğrenmesi modeli geliştirilmesi
-istenmektedir.Modeli geliştirmeden önce gerekli olan veri analizi ve özellik mühendisliği adımlarını gerçekleştirmemiz beklenmektedir.
+-Problem: Developing a machine learning model that can predict whether people have diabetes when their characteristics are specified.
+Before developing the model, we are expected to perform the necessary data analysis and feature engineering steps.
 
-#Veriseti ABD'deki Ulusal Diyabet-Sindirim-Böbrek Hastalıkları Enstitüleri'nde tutulan büyük veri setinin parçasıdır.
-#ABD'deki Arizona Eyaleti'nin en büyük 5.şehri olan Phoenix şehrinde yaşayan 21 yaş ve üzerinde olan Pima Indian kadınları
-#üzerinde yapılan diyabet araştırması için kullanılan verilerdir.768 gözlem ve 8 sayısal bağımsız değişkenden oluşmaktadır.
-#Hedef değişken "outcome" olarak belirtilmiş olup;1 diyabet test sonucunun pozitif oluşunu,0 ise negatif oluşunu belirtmektedir.
+-Data is part of the large dataset held at the National Institutes of Diabetes-Digestive-Kidney Diseases in the USA.
+Pima Indian women aged 21 and over living in Phoenix, the 5th largest city in the State of Arizona in the USA
+It is the data used for diabetes research on #. It consists of 768 observations and 8 numerical independent variables.
+-Target variable is specified as "outcome"; 1 indicates positive diabetes test result and 0 indicates negative.**
 
-#Değişkenler
+# Variables in the dataset 
 
-#Pregnancies: Hamilelik sayısı
-#Glucose:Glikoz
-#BloodPressure:Kan basıncı(Diastolic(KüçükTansiyon))
-#SkinThickness:Cilt Kalınlığı
-#Insulin:İnsülin.
-#BMI:Beden kitle indeksi.
-#DiabetesPedigreeFunction:Soyumuzdaki kişilere göre diyabet olma ihtimalimizi hesaplayan bir fonksiyon.
-#Age:Yaş(yıl)
-#Outcome:Kişinin diyabet olup olmadığı bilgisi.Hastalığa sahip(1) yada değil(0).
+#Pregnancies: Number of previous pregnancies
+#Glucose: Amount of glucose in the blood
+#BloodPressure: Diastolic 
+#SkinThickness
+#Insulin
+#BMI:Body mass index.
+#DiabetesPedigreeFunction: A function that calculates the probability of having diabetes based on our DNA.
+#Age:Age(Year)
+#Outcome: Knowledge of whether the person has diabetes. Having the disease(1) or not(0).
 
-
-#GÖREV1:KEŞİFCİ VERİ ANALİZİ
-
-#Adım1:Genel resmi inceleyiniz.
-#Adım2:Numerik ve kategorik değişkenleri yakalayınız.
-#Adım3:Numerik ve kategorik değişkenlerin analizini yapınız.
-#Adım4:Hedef değişken analizi yapınız.
-#Adım5:Aykırı gözlem analizi yapınız.
-#Adım6:Eksik gözlem analizi yapınız.
-#Adım7:Korelasyon analizi yapınız.
-
-#GÖREV2:FEATURE ENGINEERING
-
-#Adım1:Eksik ve aykırı değerler için gerekli işlemleri yapınız.
-Verisetinde eksik gözlem bulunmamakta ama Glikoz,Insulin vb. değişkenlerde 0 değeri içeren gözlem birimleri eksikdeğeri ifade ediyor olabilir.Örneğin;bir kişinin glikoz veya insulin değeri 0 olamayacaktır.Bu durumu dikkate alarak sıfır değerlerini ilgili değerlerde NaN olarak atama yapıp sonrasında eksik değerlere işlemleri uygulayabilirsiniz.
-#Adım2:Yeni değişkenler oluşturunuz.
-#Adım3:Encoding işlemlerini gerçekleştiriniz.
-#Adım4:Numerik değişkenler için standartlaştırma yapınız.
-#Adım5:Model oluşturunuz.
 
